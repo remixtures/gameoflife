@@ -1,6 +1,6 @@
 package life;
 
-class Universe {
+public class Universe {
 
     private int generations;
     private final int size;
