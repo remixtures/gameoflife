@@ -8,7 +8,7 @@ public class GameOfLife extends JFrame {
     private Universe universe;
     private final JLabel generationLabel;
     private final JLabel aliveLabel;
-    private final Cells gridCell;
+    private final Cells cellGrid;
     private final JToggleButton playToggleButton;
     private Timer timer;
 
@@ -53,8 +53,8 @@ public class GameOfLife extends JFrame {
         header.add(buttonBox);
         box.add(header);
         boolean[][] cellStatus = new boolean[1][1];
-        gridCell = new Cells(cellStatus);
-        box.add(gridCell);
+        cellGrid = new Cells(cellStatus);
+        box.add(cellGrid);
         add(box);
         setVisible(true);
         startAnimation();
@@ -70,7 +70,7 @@ public class GameOfLife extends JFrame {
         this.repaint();
         final int interval = 500;
         timer = new Timer(interval, evt -> {
-            universe.advance();
+            universe.evolution();
             this.setGenerationLabel(universe.getGenerations());
             this.setAliveLabel(universe.getCurrentGeneration().getAliveCells());
             this.draw(universe.getCurrentGeneration().getGameBoard());
@@ -89,7 +89,7 @@ public class GameOfLife extends JFrame {
     }
 
     public void draw(boolean[][] cellStatus) {
-        gridCell.setState(cellStatus);
-        gridCell.repaint();
+        cellGrid.setState(cellStatus);
+        cellGrid.repaint();
     }
 }

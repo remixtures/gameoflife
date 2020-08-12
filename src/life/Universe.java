@@ -12,7 +12,7 @@ public class Universe {
         this.currentGeneration = new Generation(size);
     }
 
-    public int advance() {
+    public int evolution() {
         this.currentGeneration = LifeAlgorithm.generateNextGeneration(currentGeneration);
         generations++;
         return generations;
