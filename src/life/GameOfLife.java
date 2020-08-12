@@ -21,7 +21,7 @@ public class GameOfLife extends JFrame {
         resetButton.setName("ResetButton");
         resetButton.addActionListener(actionEvent -> {
             timer.stop();
-            startAnimation();
+            startEvolution();
         });
         playToggleButton = new JToggleButton("pause");
         playToggleButton.setName("PlayToggleButton");
@@ -57,10 +57,10 @@ public class GameOfLife extends JFrame {
         box.add(cellGrid);
         add(box);
         setVisible(true);
-        startAnimation();
+        startEvolution();
     }
 
-    public void startAnimation() {
+    public void startEvolution() {
         int size = 100;
         universe = new Universe(size);
         this.setGenerationLabel(universe.getGenerations());
