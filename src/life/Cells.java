@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-class Cells extends JPanel {
+public class Cells extends JPanel {
 
     int gridSize;
     boolean[][] cellStatus;
